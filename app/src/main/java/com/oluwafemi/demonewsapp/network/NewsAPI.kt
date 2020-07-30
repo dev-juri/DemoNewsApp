@@ -3,7 +3,6 @@ package com.oluwafemi.demonewsapp.network
 import androidx.lifecycle.LiveData
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import com.oluwafemi.demonewsapp.model.News
-import com.squareup.moshi.JsonAdapter
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import kotlinx.coroutines.Deferred
@@ -22,12 +21,12 @@ val moshi = Moshi.Builder()
     .add(KotlinJsonAdapterFactory())
     .build()
 
-interface NewsAPI {
+interface NewsAPIService {
     @GET("top-headlines")
-    fun getHeadLines(
+    fun getHeadLinesAsync(
         @Query("country")country : String = "ng",
-        @Query("key")key : String = API_KEY
-    ) : Deferred<LiveData<List<News>>>
+        @Query("key")apiKey : String = API_KEY
+    ) : Deferred<LiveData<News>>
 }
 
 val retrofit = Retrofit.Builder()
@@ -35,3 +34,9 @@ val retrofit = Retrofit.Builder()
     .addConverterFactory(MoshiConverterFactory.create(moshi))
     .baseUrl(BASE_URL)
     .build()
+
+object NewsAPI {
+    val retrofitService : NewsAPIService by lazy {
+        retrofit.create(NewsAPIService::class.java)
+    }
+}
