@@ -2,6 +2,7 @@ package com.oluwafemi.demonewsapp.network
 
 import androidx.lifecycle.LiveData
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
+import com.oluwafemi.demonewsapp.model.Article
 import com.oluwafemi.demonewsapp.model.News
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
@@ -26,7 +27,7 @@ interface NewsAPIService {
     fun getHeadLinesAsync(
         @Query("country")country : String = "ng",
         @Query("key")apiKey : String = API_KEY
-    ) : Deferred<LiveData<News>>
+    ) : Deferred<List<News>>
 }
 
 val retrofit = Retrofit.Builder()
