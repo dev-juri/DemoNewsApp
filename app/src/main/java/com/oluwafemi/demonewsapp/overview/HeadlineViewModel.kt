@@ -1,8 +1,10 @@
 package com.oluwafemi.demonewsapp.overview
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.oluwafemi.demonewsapp.model.Article
 import com.oluwafemi.demonewsapp.model.News
 import com.oluwafemi.demonewsapp.network.NewsAPI
 import kotlinx.coroutines.*
@@ -33,6 +35,7 @@ class HeadlineViewModel : ViewModel() {
             try {
                 val listResult = getNews.await()
                 _newsItems.value = listResult
+                Log.i("JSON", listResult.toString())
 
             } catch (e: Exception) {
                 _newsItems.value = ArrayList()
