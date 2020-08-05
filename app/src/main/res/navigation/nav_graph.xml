@@ -3,11 +3,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/overViewFragment">
+    app:startDestination="@id/headLineFragment">
 
     <fragment
-        android:id="@+id/overViewFragment"
+        android:id="@+id/headLineFragment"
         android:name="com.oluwafemi.demonewsapp.overview.HeadlineFragment"
-        android:label="over_view_fragment"
+        android:label="head_line_fragment"
         tools:layout="@layout/fragment_headline" />
 </navigation>

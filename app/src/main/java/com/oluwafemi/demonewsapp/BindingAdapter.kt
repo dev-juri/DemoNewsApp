@@ -3,6 +3,7 @@ package com.oluwafemi.demonewsapp
 import android.widget.ImageView
 import androidx.core.net.toUri
 import androidx.databinding.BindingAdapter
+import androidx.lifecycle.LiveData
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.oluwafemi.demonewsapp.adapter.NewsRecyclerAdapter
@@ -10,7 +11,7 @@ import com.oluwafemi.demonewsapp.model.Article
 import com.oluwafemi.demonewsapp.model.News
 
 @BindingAdapter("newsData")
-fun bindRecyclerView(recyclerView: RecyclerView, data: List<News>?) {
+fun bindRecyclerView(recyclerView: RecyclerView, data: List<Article>?) {
     val adapter = recyclerView.adapter as NewsRecyclerAdapter
     adapter.submitList(data)
 }

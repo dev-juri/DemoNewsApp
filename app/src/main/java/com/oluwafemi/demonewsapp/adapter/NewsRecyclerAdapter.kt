@@ -10,19 +10,19 @@ import com.oluwafemi.demonewsapp.databinding.NewsItemsBinding
 import com.oluwafemi.demonewsapp.model.Article
 import com.oluwafemi.demonewsapp.model.News
 
-class NewsRecyclerAdapter : ListAdapter<News, NewsRecyclerAdapter.NewsViewHolder>(DiffUtilCallback){
-    companion object DiffUtilCallback : DiffUtil.ItemCallback<News>() {
-        override fun areItemsTheSame(oldItem: News, newItem: News): Boolean {
+class NewsRecyclerAdapter : ListAdapter<Article, NewsRecyclerAdapter.NewsViewHolder>(DiffUtilCallback){
+    companion object DiffUtilCallback : DiffUtil.ItemCallback<Article>() {
+        override fun areItemsTheSame(oldItem: Article, newItem: Article): Boolean {
             return oldItem === newItem
         }
 
-        override fun areContentsTheSame(oldItem: News, newItem: News): Boolean {
-            return oldItem.totalResults == newItem.totalResults
+        override fun areContentsTheSame(oldItem: Article, newItem: Article): Boolean {
+            return oldItem.title == newItem.title
         }
     }
     inner class NewsViewHolder(private var binding: NewsItemsBinding) : RecyclerView.ViewHolder(binding.root) {
-        fun bind(news: News){
-            binding.news = news
+        fun bind(article: Article){
+            binding.news = article
             binding.executePendingBindings()
         }
     }

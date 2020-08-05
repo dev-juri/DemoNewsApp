@@ -7,7 +7,10 @@ import androidx.lifecycle.ViewModel
 import com.oluwafemi.demonewsapp.model.Article
 import com.oluwafemi.demonewsapp.model.News
 import com.oluwafemi.demonewsapp.network.NewsAPI
-import kotlinx.coroutines.*
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.launch
 
 class HeadlineViewModel : ViewModel() {
     private val job = Job()
@@ -16,13 +19,14 @@ class HeadlineViewModel : ViewModel() {
 
     override fun onCleared() {
         super.onCleared()
-        coroutineScope.cancel()
+        job.cancel()
     }
 
-    private val _newsItems = MutableLiveData<List<News>>()
+    private val _newsItems = MutableLiveData<List<Article>>()
 
-    val newsItems: LiveData<List<News>>
+    val newsItems: LiveData<List<Article>>
         get() = _newsItems
+
 
     init {
         displayNews()
@@ -34,11 +38,11 @@ class HeadlineViewModel : ViewModel() {
 
             try {
                 val listResult = getNews.await()
-                _newsItems.value = listResult
-                Log.i("JSON", listResult.toString())
+                _newsItems.value = listResult.articles
+                Log.i("JSON", "RESULT: ${_newsItems.value}")
 
             } catch (e: Exception) {
-                _newsItems.value = ArrayList()
+                Log.i("JSON", "EXCEPTION: $e")
             }
         }
     }
