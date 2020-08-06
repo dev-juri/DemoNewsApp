@@ -11,13 +11,13 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_height="150dp"
         android:paddingBottom="4dp">
 
         <ImageView
             android:id="@+id/news_image"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:scaleType="centerCrop"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -27,7 +27,7 @@
             app:imageUrl="@{news.urlToImage}"/>
 
         <LinearLayout
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/container_background"
             android:orientation="vertical"
@@ -41,7 +41,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@{news.title}"
-                android:textColor="#EFEFEF"
+                android:textColor="#000"
                 android:textSize="32sp"
                 android:textStyle="normal|bold" />
 
@@ -50,7 +50,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@{news.description}"
-                android:textColor="#EFEFEF"
+                android:textColor="#000"
                 android:textSize="14sp"
                 android:textStyle="normal" />
 

@@ -30,7 +30,7 @@ val retrofit = Retrofit.Builder()
 interface NewsAPIService {
     @GET("/v2/top-headlines")
     fun getHeadLinesAsync(
-        @Query("country")country : String = "us",
+        @Query("country")country : String = "ng",
         @Query("apiKey")apikey : String = API_KEY
     ) : Deferred<News>
 }

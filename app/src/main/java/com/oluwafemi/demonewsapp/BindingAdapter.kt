@@ -9,6 +9,7 @@ import com.bumptech.glide.Glide
 import com.oluwafemi.demonewsapp.adapter.NewsRecyclerAdapter
 import com.oluwafemi.demonewsapp.model.Article
 import com.oluwafemi.demonewsapp.model.News
+import com.squareup.picasso.Picasso
 
 @BindingAdapter("newsData")
 fun bindRecyclerView(recyclerView: RecyclerView, data: List<Article>?) {
@@ -19,10 +20,12 @@ fun bindRecyclerView(recyclerView: RecyclerView, data: List<Article>?) {
 @BindingAdapter("imageUrl")
 fun bindImage(imgView: ImageView, imgUrl: String?) {
     imgUrl?.let {
-        val imgUri = imgUrl.toUri().buildUpon().scheme("https").build()
-        Glide.with(imgView.context)
+        val imgUri = it.toUri().buildUpon().scheme("https").build()
+        /*Glide.with(imgView.context)
             .load(imgUri)
-            .into(imgView)
+            .into(imgView)*/
+
+        Picasso.get().load(imgUri).into(imgView)
 
     }
 }

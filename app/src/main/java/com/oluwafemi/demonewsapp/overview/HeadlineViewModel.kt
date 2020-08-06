@@ -31,13 +31,12 @@ class HeadlineViewModel : ViewModel() {
     }
 
     private fun displayNews() {
-
         coroutineScope.launch {
             val getNews = NewsAPI.retrofitService.getHeadLinesAsync()
 
             try {
                 val listResult = getNews.await()
-                _newsItems.value = listResult.articles
+                _newsItems.value = listResult.getArticle
                 Log.i("JSON", "RESULT: ${_newsItems.value}")
 
             } catch (e: Exception) {
