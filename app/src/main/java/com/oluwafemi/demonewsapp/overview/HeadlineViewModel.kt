@@ -5,7 +5,6 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.oluwafemi.demonewsapp.model.Article
-import com.oluwafemi.demonewsapp.model.News
 import com.oluwafemi.demonewsapp.network.NewsAPI
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -27,12 +26,12 @@ class HeadlineViewModel : ViewModel() {
     val newsItems: LiveData<List<Article>>
         get() = _newsItems
 
-
     init {
         displayNews()
     }
 
     private fun displayNews() {
+
         coroutineScope.launch {
             val getNews = NewsAPI.retrofitService.getHeadLinesAsync()
 
