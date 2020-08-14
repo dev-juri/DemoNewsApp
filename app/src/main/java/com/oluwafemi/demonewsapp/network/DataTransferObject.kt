@@ -5,8 +5,6 @@ import com.oluwafemi.demonewsapp.model.Source
 import com.squareup.moshi.JsonClass
 
 @JsonClass(generateAdapter = true)
-data class NetworkNewsContainer(val news: NetworkNews)
-
 data class NetworkNews(
     val articles: List<NetworkArticle>,
     val status: String,
@@ -24,8 +22,8 @@ data class NetworkArticle(
     val urlToImage: String ?
 )
 
-fun NetworkNewsContainer.asDomainModel() : Array<DatabaseArticle> {
-    return news.articles.map {
+fun NetworkNews.asDomainModel() : Array<DatabaseArticle> {
+    return articles.map {
         DatabaseArticle(
             author = it.author,
             content = it.content,
