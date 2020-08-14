@@ -1,4 +1,4 @@
-package com.oluwafemi.demonewsapp.details
+package com.oluwafemi.demonewsapp.ui.details
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -10,7 +10,7 @@ import com.oluwafemi.demonewsapp.databinding.DetailFragmentBinding
 
 class DetailFragment : Fragment() {
 
-    val viewModel : DetailViewModel by lazy {
+    private val viewModel : DetailViewModel by lazy {
         ViewModelProvider(this).get(DetailViewModel::class.java)
     }
 

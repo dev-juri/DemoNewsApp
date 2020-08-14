@@ -1,4 +1,4 @@
-package com.oluwafemi.demonewsapp.overview
+package com.oluwafemi.demonewsapp.ui.overview
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -12,7 +12,10 @@ import com.oluwafemi.demonewsapp.databinding.FragmentHeadlineBinding
 class HeadlineFragment : Fragment() {
 
     private val viewModel: HeadlineViewModel by lazy {
-        ViewModelProvider(this).get(HeadlineViewModel::class.java)
+        val activity = requireNotNull(this.activity) {
+            "You can only access the viewModel after onActivityCreated()"
+        }
+        ViewModelProvider(this, HeadlineViewModel.Factory(activity.application)).get(HeadlineViewModel::class.java)
     }
 
     override fun onCreateView(

@@ -1,4 +1,4 @@
-package com.oluwafemi.demonewsapp
+package com.oluwafemi.demonewsapp.util
 
 import android.widget.ImageView
 import androidx.core.net.toUri

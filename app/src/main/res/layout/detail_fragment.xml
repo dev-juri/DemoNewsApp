@@ -3,14 +3,14 @@
     <data>
         <variable
             name="viewModel"
-            type="com.oluwafemi.demonewsapp.details.DetailViewModel" />
+            type="com.oluwafemi.demonewsapp.ui.details.DetailViewModel" />
     </data>
 
     <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".details.DetailFragment">
+        tools:context=".ui.details.DetailFragment">
 
         <TextView
             android:layout_width="match_parent"

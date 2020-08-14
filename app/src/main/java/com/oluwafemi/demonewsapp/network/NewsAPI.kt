@@ -32,7 +32,7 @@ interface NewsAPIService {
     fun getHeadLinesAsync(
         @Query("country")country : String = "ng",
         @Query("apiKey")apikey : String = API_KEY
-    ) : Deferred<News>
+    ) : Deferred<NetworkNewsContainer>
 }
 
 

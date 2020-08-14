@@ -1,4 +1,4 @@
-package com.oluwafemi.demonewsapp.details
+package com.oluwafemi.demonewsapp.ui.details
 
 import androidx.lifecycle.ViewModel
 import kotlinx.coroutines.CoroutineScope
